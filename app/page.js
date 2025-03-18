@@ -10,15 +10,12 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
-    // Faster animation sequence with smoother timing
     const dotTimer = setTimeout(() => {
       setShowDot(false);
-    }, 1200); // Reduced from 1500ms for quicker transition
-
-    // Shorter gap between dot disappearing and full logo appearing
+    }, 1200);
     const logoTimer = setTimeout(() => {
       setShowFullLogo(true);
-    }, 1700); // Reduced from 2200ms to make transition feel more connected
+    }, 1700);
 
     return () => {
       clearTimeout(dotTimer);
@@ -36,28 +33,22 @@ export default function Home() {
       });
       return;
     }
-
-    // Create mailto link with pre-filled subject and body
     const subject = encodeURIComponent("Notify me when had.af launches");
     const body = encodeURIComponent(
       `Please notify me at ${email} when had.af launches.`
     );
     const mailtoLink = `mailto:hi@haroonazizi.com?subject=${subject}&body=${body}`;
 
-    // Open email client
     window.open(mailtoLink, "_blank");
 
-    // Show success message
     setSubmitStatus({
       success: true,
       message:
         "Email client opened! Please send the email to complete your request.",
     });
 
-    // Reset form
     setEmail("");
 
-    // Clear status after 5 seconds
     setTimeout(() => {
       setSubmitStatus(null);
     }, 5000);
@@ -65,7 +56,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center relative bg-slate-900 text-white overflow-hidden">
-      {/* Improved background pattern inspired by Afghan carpets */}
+      {/* Background pattern inspired by Afghan carpets */}
       <div
         className="absolute inset-0 opacity-15 bg-repeat z-0"
         style={{
@@ -79,7 +70,6 @@ export default function Home() {
         <div className="flex items-center justify-center h-32 relative">
           {!showFullLogo ? (
             <>
-              {/* Initial animation with dot */}
               <motion.span
                 className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500"
                 initial={{ opacity: 0 }}
@@ -106,7 +96,7 @@ export default function Home() {
                       filter: "drop-shadow(0 0 12px rgba(245, 158, 11, 0))",
                       transition: { duration: 0.2 },
                     }}
-                    transition={{ duration: 1.2, ease: "easeOut" }} // Smoother easing
+                    transition={{ duration: 1.2, ease: "easeOut" }}
                   >
                     .
                   </motion.span>
@@ -130,9 +120,9 @@ export default function Home() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{
                 type: "spring",
-                stiffness: 150, // Increased for snappier animation
-                damping: 10, // Reduced for smoother motion
-                duration: 0.5, // Shorter duration
+                stiffness: 150,
+                damping: 10,
+                duration: 0.5,
                 ease: "easeOut",
               }}
             >
@@ -148,7 +138,7 @@ export default function Home() {
                 }}
                 transition={{
                   duration: 5,
-                  ease: "linear", // Changed to linear for smoother gradient movement
+                  ease: "linear",
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
@@ -159,7 +149,6 @@ export default function Home() {
           )}
         </div>
 
-        {/* Tagline */}
         <motion.h2
           className="text-2xl md:text-3xl text-center font-light"
           initial={{ opacity: 0, y: 20 }}
@@ -198,7 +187,7 @@ export default function Home() {
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-full" />
         </motion.div>
 
-        {/* Contact/Social Links */}
+        {/* haroon social links */}
         <motion.div
           className="flex space-x-6 mt-8"
           initial={{ opacity: 0 }}
@@ -262,7 +251,7 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Email signup mini form */}
+      {/* Email signup mini form. rederects to the mail app*/}
       <motion.div
         className="absolute bottom-8 z-20"
         initial={{ opacity: 0, y: 20 }}
