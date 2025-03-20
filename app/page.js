@@ -61,17 +61,17 @@ export default function Home() {
         className="absolute inset-0 opacity-15 bg-repeat z-0"
         style={{
           backgroundImage: `url('/improved-carpet-pattern.svg')`,
-          backgroundSize: "300px",
+          backgroundSize: "200px 200px", // Smaller pattern size for mobile
         }}
       />
 
-      <div className="z-10 flex flex-col items-center justify-center space-y-16 px-4">
+      <div className="z-10 flex flex-col items-center justify-center space-y-8 sm:space-y-16 px-4 w-full max-w-md mx-auto">
         {/* Logo Animation */}
-        <div className="flex items-center justify-center h-32 relative">
+        <div className="flex items-center justify-center h-24 sm:h-32 relative">
           {!showFullLogo ? (
             <>
               <motion.span
-                className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500"
+                className="text-5xl sm:text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
@@ -82,7 +82,7 @@ export default function Home() {
               <AnimatePresence mode="wait">
                 {showDot && (
                   <motion.span
-                    className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-600"
+                    className="text-5xl sm:text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-600"
                     initial={{
                       opacity: 1,
                       filter: "drop-shadow(0 0 0px rgba(245, 158, 11, 0))",
@@ -104,7 +104,7 @@ export default function Home() {
               </AnimatePresence>
 
               <motion.span
-                className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-600"
+                className="text-5xl sm:text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-600"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
@@ -127,7 +127,7 @@ export default function Home() {
               }}
             >
               <motion.span
-                className="text-6xl sm:text-7xl md:text-8xl font-bold text-transparent bg-clip-text"
+                className="text-5xl sm:text-6xl md:text-8xl font-bold text-transparent bg-clip-text"
                 style={{
                   backgroundImage:
                     "linear-gradient(to right, #dc2626, #f59e0b, #dc2626)",
@@ -150,7 +150,7 @@ export default function Home() {
         </div>
 
         <motion.h2
-          className="text-2xl md:text-3xl text-center font-light"
+          className="text-xl sm:text-2xl md:text-3xl text-center font-light px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 3.2, ease: "easeOut" }}
@@ -160,13 +160,13 @@ export default function Home() {
 
         {/* Coming Soon */}
         <motion.div
-          className="flex flex-col items-center space-y-6"
+          className="flex flex-col items-center space-y-4 sm:space-y-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 3.6, ease: "easeOut" }}
         >
           <motion.p
-            className="text-xl md:text-2xl text-center font-medium text-amber-400"
+            className="text-lg sm:text-xl md:text-2xl text-center font-medium text-amber-400"
             animate={{
               textShadow: [
                 "0 0 5px rgba(245, 158, 11, 0.3)",
@@ -184,12 +184,12 @@ export default function Home() {
           >
             Coming Soon
           </motion.p>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-full" />
         </motion.div>
 
         {/* haroon social links */}
         <motion.div
-          className="flex space-x-6 mt-8"
+          className="flex space-x-6 mt-4 sm:mt-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 4.0, ease: "easeOut" }}
@@ -200,8 +200,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="none"
@@ -215,8 +215,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -235,8 +235,8 @@ export default function Home() {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="22"
+              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -253,28 +253,28 @@ export default function Home() {
 
       {/* Email signup mini form. rederects to the mail app*/}
       <motion.div
-        className="absolute bottom-8 z-20"
+        className="absolute bottom-4 sm:bottom-8 z-20 w-full px-4 max-w-md mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 4.4, ease: "easeOut" }}
       >
-        <div className="bg-slate-800 bg-opacity-70 backdrop-blur-sm p-4 rounded-xl border border-red-900/20 shadow-lg">
-          <p className="text-sm text-center mb-3">
+        <div className="bg-slate-800 bg-opacity-70 backdrop-blur-sm p-3 sm:p-4 rounded-xl border border-red-900/20 shadow-lg">
+          <p className="text-xs sm:text-sm text-center mb-2 sm:mb-3">
             Get notified when we launch
           </p>
           <form onSubmit={handleEmailSubmit} className="flex flex-col">
-            <div className="flex">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0">
               <input
                 type="email"
                 placeholder="Email address"
-                className="px-3 py-2 bg-slate-700 rounded-l-md focus:outline-none focus:ring-1 focus:ring-amber-500 text-sm w-64"
+                className="px-3 py-2 bg-slate-700 rounded-md sm:rounded-l-md sm:rounded-r-none focus:outline-none focus:ring-1 focus:ring-amber-500 text-sm w-full"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-red-600 to-amber-600 px-4 py-2 rounded-r-md text-sm font-medium hover:from-red-700 hover:to-amber-700 transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-red-600 to-amber-600 px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md text-sm font-medium hover:from-red-700 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 sm:whitespace-nowrap sm:flex-shrink-0"
               >
                 Notify Me
               </button>
