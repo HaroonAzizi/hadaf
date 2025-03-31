@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center relative bg-indigo-950 text-white overflow-hidden">
-      {/* Educational background pattern */}
+      {/*background pattern */}
       <div
         className="absolute inset-0 opacity-10 bg-repeat z-0"
         style={{
@@ -68,18 +68,17 @@ export default function Home() {
       {/* Floating educational elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(8)].map((_, i) => {
-          // Fixed positions spread across the screen
           const positions = [
-            { left: '15%', top: '20%' },
-            { left: '75%', top: '15%' },
-            { left: '25%', top: '65%' },
-            { left: '80%', top: '70%' },
-            { left: '60%', top: '30%' },
-            { left: '10%', top: '40%' },
-            { left: '40%', top: '80%' },
-            { left: '50%', top: '10%' }
+            { left: "15%", top: "20%" },
+            { left: "75%", top: "15%" },
+            { left: "25%", top: "65%" },
+            { left: "80%", top: "70%" },
+            { left: "60%", top: "30%" },
+            { left: "10%", top: "40%" },
+            { left: "40%", top: "80%" },
+            { left: "50%", top: "10%" },
           ];
-          
+
           return (
             <motion.div
               key={i}
@@ -87,21 +86,21 @@ export default function Home() {
               style={{
                 left: positions[i].left,
                 top: positions[i].top,
-                filter: "blur(1px)"
+                filter: "blur(1px)",
               }}
               initial={{
                 rotate: i * 45,
-                scale: 0.5 + (i % 5) * 0.1
+                scale: 0.5 + (i % 5) * 0.1,
               }}
               animate={{
                 y: [0, i % 2 === 0 ? 30 : -30],
-                rotate: [i * 45, i * 45 + 360]
+                rotate: [i * 45, i * 45 + 360],
               }}
               transition={{
                 duration: 15 + i * 2,
                 repeat: Infinity,
                 repeatType: "reverse",
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
             >
               {i % 4 === 0 ? (
@@ -164,21 +163,21 @@ export default function Home() {
                 {showDot && (
                   <motion.span
                     className="text-5xl sm:text-6xl md:text-8xl font-bold text-emerald-500"
-                    style={{ 
+                    style={{
                       textShadow: "0 0 10px rgba(52, 211, 153, 0.6)",
                       display: "inline-block",
                       marginLeft: "-0.1em",
-                      marginRight: "-0.1em"
+                      marginRight: "-0.1em",
                     }}
                     initial={{
-                      opacity: 1
+                      opacity: 1,
                     }}
                     animate={{
-                      opacity: [1, 0.8, 0.6, 0.4, 0.2, 0]
+                      opacity: [1, 0.8, 0.6, 0.4, 0.2, 0],
                     }}
                     exit={{
                       opacity: 0,
-                      transition: { duration: 0.2 }
+                      transition: { duration: 0.2 },
                     }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                   >
@@ -242,7 +241,7 @@ export default function Home() {
           Revolutionizing Education for Afghans
         </motion.h2>
 
-        {/* Coming Soon */}
+        {/* Coming Soon part */}
         <motion.div
           className="flex flex-col items-center space-y-4 sm:space-y-6"
           initial={{ opacity: 0, y: 20 }}
